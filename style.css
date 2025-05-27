@@ -30,20 +30,26 @@ header p {
 }
 
 .galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex; /* Mudado de grid para flex */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  align-items: flex-start; /* Alinha os itens ao topo, caso tenham alturas diferentes */
   gap: 1.5rem;
   padding: 3rem;
-  max-width: 1000px;
+  overflow-x: auto; /* Permite rolagem horizontal se as fotos excederem a largura da tela */
+  white-space: nowrap; /* Mantém os itens em uma única linha */
+  max-width: 100%; /* Garante que ocupe a largura total disponível */
   margin: 2rem auto;
 }
 
 .foto {
+  flex-shrink: 0; /* Impede que as fotos encolham */
+  width: 280px; /* Largura fixa para cada foto */
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #fff;
+  display: inline-block; /* Ajuda com white-space: nowrap */
 }
 
 .foto img {
